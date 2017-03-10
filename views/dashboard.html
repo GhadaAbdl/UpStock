@@ -1,0 +1,522 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/dashboard.html">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New Responsable </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Stock
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">5555</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title">Transaction interface </h3>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="DashboardController">
+    
+    <!-- BEGIN DASHBOARD STATS -->
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> 1800 </div>
+                    <div class="desc"> Products</div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> 12,5M$ </div>
+                    <div class="desc"> Total Profit </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> 549 </div>
+                    <div class="desc"> New Orders </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> +20% </div>
+                    <div class="desc"> Employees </div>
+                </div>
+                <a class="more" href="#"> View more
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END DASHBOARD STATS -->
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-settings font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">Sales Summary</span>
+                        <span class="caption-helper hide">weekly stats...</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                            <label class="btn dark btn-outline btn-circle btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">Today</label>
+                            <label class="btn dark btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Week</label>
+                            <label class="btn dark btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Month</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row list-separated">
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="font-grey-mint font-sm"> Total Sales </div>
+                            <div class="uppercase font-hg font-red-flamingo"> 13760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="font-grey-mint font-sm"> Revenue </div>
+                            <div class="uppercase font-hg font-green"> 4760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="font-grey-mint font-sm"> Expenses </div>
+                            <div class="uppercase font-hg font-purple"> 1760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="font-grey-mint font-sm"> Growth </div>
+                            <div class="uppercase font-hg font-blue"> 9760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-separated list-inline-xs hide">
+                        <li>
+                            <div class="font-grey-mint font-sm"> Total Sales </div>
+                            <div class="uppercase font-hg font-red-flamingo"> 13760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </li>
+                        <li> </li>
+                        <li class="border">
+                            <div class="font-grey-mint font-sm"> Revenue </div>
+                            <div class="uppercase font-hg font-green"> 4760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <div class="font-grey-mint font-sm"> Expenses </div>
+                            <div class="uppercase font-hg font-purple"> 1760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </li>
+                        <li class="divider"> </li>
+                        <li>
+                            <div class="font-grey-mint font-sm"> Growth </div>
+                            <div class="uppercase font-hg font-blue"> 9760
+                                <span class="font-lg font-grey-mint">$</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="sales_statistics" class="portlet-body-morris-fit morris-chart" style="height: 260px"> </div>
+                </div>
+            </div>
+            <!-- END PORTLET-->
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-red"></i>
+                        <span class="caption-subject font-red bold uppercase">Stock's Responsable</span>
+                        <span class="caption-helper hide">weekly stats...</span>
+                    </div>
+                    <div class="actions">
+                        <div class="btn-group btn-group-devided" data-toggle="buttons">
+                            <label class="btn green btn-outline btn-circle btn-sm active">
+                                <input type="radio" name="options" class="toggle" id="option1">Today</label>
+                            <label class="btn red btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Week</label>
+                            <label class="btn blue btn-outline btn-circle btn-sm">
+                                <input type="radio" name="options" class="toggle" id="option2">Month</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row number-stats margin-bottom-30">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="stat-left">
+                                <div class="stat-chart">
+                                    <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                    <div id="sparkline_bar"></div>
+                                </div>
+                                <div class="stat-number">
+                                    <div class="title"> Total </div>
+                                    <div class="number"> 2460 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="stat-right">
+                                <div class="stat-chart">
+                                    <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                    <div id="sparkline_bar2"></div>
+                                </div>
+                                <div class="stat-number">
+                                    <div class="title"> New </div>
+                                    <div class="number"> 719 </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-scrollable table-scrollable-borderless">
+                        <table class="table table-hover table-light">
+                            <thead>
+                                <tr class="uppercase">
+                                    <th colspan="2"> MEMBER </th>
+                                    <th> Earnings </th>
+                                    <th> CASES </th>
+                                    <th> CLOSED </th>
+                                    <th> RATE </th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td class="fit">
+                                    <img class="user-pic rounded" src="assets/pages/media/users/avatar4.jpg"> </td>
+                                <td>
+                                    <a href="javascript:;" class="primary-link">Brain</a>
+                                </td>
+                                <td> $345 </td>
+                                <td> 45 </td>
+                                <td> 124 </td>
+                                <td>
+                                    <span class="bold font-green">80%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fit">
+                                    <img class="user-pic rounded" src="assets/pages/media/users/avatar5.jpg"> </td>
+                                <td>
+                                    <a href="javascript:;" class="primary-link">Nick</a>
+                                </td>
+                                <td> $560 </td>
+                                <td> 12 </td>
+                                <td> 24 </td>
+                                <td>
+                                    <span class="bold font-green">67%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fit">
+                                    <img class="user-pic rounded" src="assets/pages/media/users/avatar6.jpg"> </td>
+                                <td>
+                                    <a href="javascript:;" class="primary-link">Tim</a>
+                                </td>
+                                <td> $1,345 </td>
+                                <td> 450 </td>
+                                <td> 46 </td>
+                                <td>
+                                    <span class="bold font-green">98%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fit">
+                                    <img class="user-pic rounded" src="assets/pages/media/users/avatar7.jpg"> </td>
+                                <td>
+                                    <a href="javascript:;" class="primary-link">Tom</a>
+                                </td>
+                                <td> $645 </td>
+                                <td> 50 </td>
+                                <td> 89 </td>
+                                <td>
+                                    <span class="bold font-green">58%</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- END PORTLET-->
+
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered tasks-widget">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-bar-chart font-green hide"></i>
+                        <span class="caption-subject font-green bold uppercase">TASKS</span>
+                        <span class="caption-helper">16 pending</span>
+                    </div>
+                    <div class="inputs">
+                        <div class="portlet-input input-small input-inline">
+                            <div class="input-icon right">
+                                <i class="icon-magnifier"></i>
+                                <input type="text" class="form-control form-control-solid" placeholder="search..."> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="task-content">
+                        <div class="scroller" style="height: 282px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                            <!-- START TASK LIST -->
+                            <ul class="task-list">
+                                
+                                    
+                                <li>
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> Technical Management Meeting </span>
+                                        <span class="label label-sm label-warning">Company</span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Cancel </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                               
+                                           
+                                <li class="last-line">
+                                    <div class="task-checkbox">
+                                        <input type="checkbox" class="liChild" value="" /> </div>
+                                    <div class="task-title">
+                                        <span class="task-title-sp"> KeenThemes Investment Discussion </span>
+                                        <span class="label label-sm label-warning">KeenThemes </span>
+                                    </div>
+                                    <div class="task-config">
+                                        <div class="task-config-btn btn-group">
+                                            <a class="btn btn-xs default" href="javascript:;" data-toggle="dropdown" dropdown-menu-hover data-close-others="true">
+                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-check"></i> Complete </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-trash-o"></i> Cancel </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- END START TASK LIST -->
+                        </div>
+                    </div>
+                    <div class="task-footer">
+                        <div class="btn-arrow-link pull-right">
+                            <a href="javascript:;">See All Tasks</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PORTLET-->
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                        <i class="icon-globe font-green hide"></i>
+                        <span class="caption-subject font-green bold uppercase">Feeds</span>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#" data-target="#tab_1_1" data-toggle="tab"> System </a>
+                        </li>
+                        <li>
+                            <a href="#" data-target="#tab_1_2" data-toggle="tab"> Activities </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portlet-body">
+                    <!--BEGIN TABS-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1_1">
+                            <div class="scroller" style="height: 306px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                                <ul class="feeds">
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-bell-o"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc"> You have 4 pending tasks.
+                                                        <span class="label label-sm label-info"> Take action
+                                                            <i class="fa fa-share"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </li>
+                                   
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_1_2">
+                            <div class="scroller" style="height: 337px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                                <ul class="feeds">
+                                   
+                                    <li>
+                                        <a href="javascript:;">
+                                            <div class="col1">
+                                                <div class="cont">
+                                                    <div class="cont-col1">
+                                                        <div class="label label-sm label-success">
+                                                            <i class="fa fa-bell-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-col2">
+                                                        <div class="desc"> New order received </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col2">
+                                                <div class="date"> 10 mins </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                   
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END TABS-->
+                </div>
+            </div>
+            <!-- END PORTLET-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <!-- BEGIN REGIONAL STATS PORTLET-->
+            
+            <!-- END REGIONAL STATS PORTLET-->
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <!-- BEGIN PORTLET-->
+           
+            <!-- END PORTLET-->
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+    Dashboard.init();
+</script>
+<!-- BEGIN MAIN JS & CSS -->

@@ -1,0 +1,222 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/dashboard.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Todo</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover data-delay="1000" data-close-others="true"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New User </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Event
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12 margin-top-20">
+        <!-- BEGIN TODO SIDEBAR -->
+        <div class="todo-ui">
+        
+            <!-- END TODO SIDEBAR -->
+            <!-- BEGIN TODO CONTENT -->
+            <div class="todo-content">
+                <div class="portlet light">
+                    <!-- PROJECT HEAD -->
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-bar-chart font-green hide"></i>
+                            <span class="caption-helper">Orders:</span> &nbsp;
+                            <span class="caption-subject font-green bold uppercase">Check Order</span>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <a class="btn green btn-circle btn-sm" href="#" data-toggle="dropdown" dropdown-menu-hover data-close-others="true"> MANAGE
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="#">
+                                            <i class="i"></i> New Task </a>
+                                    </li>
+                                    <li class="divider"> </li>
+                                    <li>
+                                        <a href="#"> Pending
+                                            <span class="badge badge-danger"> 4 </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Completed
+                                            <span class="badge badge-success"> 12 </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Overdue
+                                            <span class="badge badge-warning"> 9 </span>
+                                        </a>
+                                    </li>
+                                    <li class="divider"> </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="i"></i> Delete Project </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end PROJECT HEAD -->
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-4">
+                                <div style="min-height: 600px;">
+                                    <div class="todo-tasklist">
+                                        <div class="todo-tasklist-item todo-tasklist-item-border-green">
+                                            <img class="todo-userpic pull-left" src="{{settings.assetsPath}}/pages/media/users/avatar4.jpg" width="27px" height="27px">
+                                            <div class="todo-tasklist-item-title"> Hafedh Taktak </div>
+                                            <div class="todo-tasklist-item-text">  .........................................</div>
+                                            <div class="todo-tasklist-controls pull-left">
+                                                <span class="todo-tasklist-date">
+                                                    <i class="fa fa-calendar"></i> 02 Fev 2017 </span>
+                                                <span class="todo-tasklist-badge badge badge-roundless">Urgent</span>
+                                            </div>
+                                        </div>
+                                        <div class="todo-tasklist-item todo-tasklist-item-border-red">
+                                            <img class="todo-userpic pull-left" src="{{settings.assetsPath}}/pages/media/users/avatar5.jpg" width="27px" height="27px">
+                                            <div class="todo-tasklist-item-title"> carrefour </div>
+                                            <div class="todo-tasklist-item-text"> ....................... </div>
+                                            <div class="todo-tasklist-controls pull-left">
+                                                <span class="todo-tasklist-date">
+                                                    <i class="fa fa-calendar"></i> 26 Fev 2017</span>
+                                                <span class="todo-tasklist-badge badge badge-roundless">Important</span>
+                                            </div>
+                                        </div>
+                                        <div class="todo-tasklist-item todo-tasklist-item-border-green">
+                                            <img class="todo-userpic pull-left" src="{{settings.assetsPath}}/pages/media/users/avatar9.jpg" width="27px" height="27px">
+                                            <div class="todo-tasklist-item-title"> Aziza </div>
+                                            <div class="todo-tasklist-controls pull-left">
+                                                <span class="todo-tasklist-date">
+                                                    <i class="fa fa-calendar"></i> 30 Mars 2017 </span>
+                                                <span class="todo-tasklist-badge badge badge-roundless">Important</span>&nbsp; </div>
+                                        </div>
+                                        <div class="todo-tasklist-item todo-tasklist-item-border-blue">
+                                            <img class="todo-userpic pull-left" src="{{settings.assetsPath}}/pages/media/users/avatar6.jpg" width="27px" height="27px">
+                                            <div class="todo-tasklist-item-title"> Google </div>
+                                            <div class="todo-tasklist-item-text">......... </div>
+                                            <div class="todo-tasklist-controls pull-left">
+                                                <span class="todo-tasklist-date">
+                                                    <i class="fa fa-calendar"></i> 30 Mars 2017 </span>
+                                                <span class="todo-tasklist-badge badge badge-roundless">Postponed</span>&nbsp;
+                                                <span class="todo-tasklist-badge badge badge-roundless">Test</span>
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="todo-tasklist-devider"> </div>
+                            <div class="col-md-7 col-sm-8">
+                                <div style="min-height: 600px;">
+                                    <form action="#" class="form-horizontal">
+                                        <!-- TASK HEAD -->
+                                        <div class="form">
+                                            <div class="form-group">
+                                                <div class="col-md-8 col-sm-8">
+                                                    <div class="todo-taskbody-user">
+                                                        <img class="todo-userpic pull-left" src="{{settings.assetsPath}}/pages/media/users/avatar6.jpg" width="50px" height="50px">
+                                                        <span class="todo-username pull-left">Abdelmoumen Ghada</span>
+                                                        <button type="button" class="todo-username-btn btn btn-circle btn-default btn-xs">&nbsp;edit&nbsp;</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <div class="todo-taskbody-date pull-right">
+                                                        <button type="button" class="todo-username-btn btn btn-circle btn-default btn-xs">&nbsp; Complete &nbsp;</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END TASK HEAD -->
+                                            <!-- TASK TITLE -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control todo-taskbody-tasktitle" placeholder="Title..."> </div>
+                                            </div>
+                                            <!-- TASK DESC -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <textarea class="form-control todo-taskbody-taskdesc" rows="8" placeholder="Description..."></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- END TASK DESC -->
+                                            <!-- TASK DUE DATE -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="input-icon">
+                                                        <i class="fa fa-calendar"></i>
+                                                        <input type="text" class="form-control todo-taskbody-due" placeholder="Due Date..."> </div>
+                                                </div>
+                                            </div>
+                                            <!-- TASK TAGS -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control todo-taskbody-tags" placeholder="Tags..." value="Pending, Requested"> </div>
+                                            </div>
+                                            <!-- TASK TAGS -->
+                                            <div class="form-actions right todo-form-actions">
+                                                <button class="btn btn-circle btn-sm green">Save Changes</button>
+                                                <button class="btn btn-circle btn-sm btn-default">Cancel</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END TODO CONTENT -->
+        </div>
+    </div>
+    <!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTENT-->
+<script>
+    AppTodo2.init(); // init todo page
+</script>
