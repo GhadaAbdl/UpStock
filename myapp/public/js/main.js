@@ -76,6 +76,84 @@ MetronicApp.controller('SidebarController', ['$scope', function($scope) {
     });
 }]);
 
+
+
+///////////// START GHADA WORK
+MetronicApp.controller('profile', ['$scope', '$rootScope', '$http',function($scope, $rootScope ,$http) {
+   console.log("Profile Controller reporting for duty.");
+	 $http.get("http://localhost:3000/products/get").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  console.log(data);
+   console.log('ena f ctrl');
+
+		$scope.profile = data;
+          console.log(profile);
+
+	});
+}]);
+
+
+MetronicApp.controller('suppliers', ['$scope', '$rootScope', '$http',function($scope, $rootScope ,$http ) {
+   console.log("Profile Controller reporting for duty.");
+///Affichage
+	 $http.get("http://localhost:3000/suppliers/get").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  console.log(data);
+   console.log('ena f ctrl suppliers');
+
+		$scope.supplier = data;
+          console.log(supplier);
+
+	});
+////Delete
+    $scope.remove = function(id) {
+  console.log(id);
+  $http.get('http://localhost:3000/suppliers/delete/'+id).success(function(response) {
+  });
+};
+
+/////Get By one
+
+
+$scope.edit = function(id) {
+  $http.get('http://localhost:3000/suppliers/getone/'+id).success(function(response , $location) {
+
+ $scope.supplier = response;  
+ $location.url('/editSupplier.html');
+console.log('ghhhhhhhhhhhhada'+response);
+})
+};
+
+
+$scope.update = function() {
+  console.log($scope.supplier._id);
+  $http.post('http://localhost:3000/suppliers/update/' + $scope.supplier._id, $scope.supplier).success(function(response) {
+
+  })
+};
+
+
+}]);
+
+
+
+MetronicApp.controller('addsupp', ['$scope', '$rootScope', '$http' ,function($scope, $rootScope ,$http,$window) {
+   console.log("Controller Add Supplier Begin");
+
+  $scope.addSupplier = function() {
+  console.log("lalalalallala"+$scope.supplier);
+  $http.post('http://localhost:3000/suppliers/add', $scope.supplier).success(function(response) {
+  console.log(response);
+
+
+ });
+};
+}]);
+
+
+
+///////////////END GHADA WORK 
+
 /* Setup Layout Part - Quick Sidebar */
 MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
     $scope.$on('$includeContentLoaded', function() {
@@ -216,6 +294,38 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             }
         })
 
+           .state('addsupplier', {
+            url: "/addSupplier.html",
+            templateUrl: "views/addSupplier.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+   .state('editsupplier', {
+            url: "/editSupplier.html",
+            templateUrl: "views/editSupplier.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
         // Tree View
         .state('tree', {
             url: "/tree",
