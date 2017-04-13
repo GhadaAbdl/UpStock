@@ -1,0 +1,125 @@
+
+    
+ <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    <!-- BEGIN PAGE HEADER-->
+<div class="page-bar" >
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/ng_ui_bootstrap.html">Clients</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#/ng_ui_bootstrap.html">Clients list</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover data-delay="1000" data-close-others="true"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New User </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Event
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title"> Clients
+   
+</h3>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+
+<div class="row" ng-controller="clients" >
+    <div class="form-group">
+      <div class="input-group">
+                           
+     <input class="form-control input-circle-right" size="16"  type="text" placeholder="Search By Name" ng-model="searchText.name">
+ </div>
+ </div>
+ 
+    <div class="col-md-12">
+       <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1"  >
+                    <thead>
+                        <tr>
+                            <th> Name </th>
+                            <th> Email </th>
+                            <th> Adress </th>
+                            <th> Number </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+      
+                        <tr class="odd gradeX" ng-repeat="data in clientList | filter: searchText ">
+                         
+                            <td>{{data.name}} </td>
+                            <td>
+                                <a href="mailto:"+{{data.email}}> {{data.email}} </a>
+                            </td>
+                            <td> {{data.adress}} </td>
+                            <td class="center">{{data.number}} </td>
+                            <td>
+                              
+                          <button type="submit" ng-click="edit(data._id)" class="btn blue">Edit</button>
+                           <button type="submit" ng-click="removeget(data._id)" class="btn red">Remove</button>
+
+                            </td>
+                        </tr>
+                    
+                        
+             
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS -->
+
+    
+    
+    
+    
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>

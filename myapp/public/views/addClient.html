@@ -1,0 +1,163 @@
+
+    
+    
+    
+ <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    <!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#/ng_ui_bootstrap.html">Clients</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#/ng_ui_bootstrap.html">Clients Add</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover data-delay="1000" data-close-others="true"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New User </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Event
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title"> Clients
+   
+</h3>
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+
+<div class="row" ng-controller="addClient">
+    <div class="col-md-12">
+    
+        
+
+
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-red-sunglo">
+                    <i class="icon-settings font-red-sunglo"></i>
+                    <span class="caption-subject bold uppercase">Add A New Client</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <a class="btn btn-sm green dropdown-toggle" href="javascript:;" data-toggle="dropdown"> Actions
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-pencil"></i> Edit </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-trash-o"></i> Delete </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-ban"></i> Ban </a>
+                            </li>
+                            <li class="divider"> </li>
+                            <li>
+                                <a href="javascript:;"> Make admin </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body form"  >
+               
+                    <div class="form-body">
+                         <div class="form-group">
+                            <label>Name</label>
+                            <div class="input-group">
+                              
+                                <input  type="text" class="form-control input-circle-right" placeholder="name" ng-model="client.name"> </div>
+                        </div>
+                         <div class="form-group">
+                            <label>Adress</label>
+                            <div class="input-group">
+                              
+                                <input  ng-model="client.adress" type="text" class="form-control input-circle-right" placeholder="Adress"> </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div class="input-group">
+                              
+                                <input ng-model="client.email" type="email"  class="form-control input-circle-right" placeholder="Email"> </div>
+                        </div>
+                         <div class="form-group">
+                            <label>Number</label>
+                            <div class="input-group">
+                              
+                                <input  ng-model="client.number" type="number" class="form-control input-circle-right" placeholder="Number"> </div>
+                        </div> 
+                 
+                    <div class="form-actions">
+                      <a href="#/ListClients.html">  <button type="submit" ng-click="addClient()" class="btn blue">Submit</button></a>
+                    </div>
+               
+            </div>
+        </div>
+  
+    </div>
+
+    
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS -->
+
+    
+    
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>

@@ -1,36 +1,22 @@
 {
-  "name": "myapp",
-  "version": "0.0.0",
-  "private": true,
+  "name": "meanauthapp",
+  "version": "1.0.0",
+  "description": "MEAN stack UpStock",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
   },
- "dependencies": {
-    "body-parser": "~1.13.2",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "emailjs": "^1.0.4",
-    "express": "~4.13.1",
-    "express-session": "^1.13.0",
-    "jade": "~1.11.0",
-    "method-override": "^2.3.5",
-    "mongoose": "^4.4.10",
-    "morgan": "~1.6.1",
-    "nodemailer": "0.7.1",
-    "passport": "^0.3.2",
-    "passport-facebook": "^2.1.0",
-    "passport-github": "^1.1.0",
-    "passport-github2": "^0.1.10",
-    "passport-google-oauth2": "^0.1.6",
-    "passport-instagram": "^1.0.0",
-    "instagram-node": "^0.5.8",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.0.0",
-    "passport-twitter": "^1.0.4",
-    "rand-token": "^0.2.1",
-    "serve-favicon": "~2.3.0",
-    "twig": "^0.8.8"
-	
-  }
+  "dependencies":{
+    "express":"*",
+    "mongoose":"*",
+    "bcryptjs":"*",
+    "cors":"*",
+    "jsonwebtoken":"*",
+    "body-parser":"*",
+    "passport":"*",
+    "passport-jwt":"*"
+  },
+  "author": "Meanners",
+  "license": "ISC"
 }

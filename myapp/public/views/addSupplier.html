@@ -1,4 +1,18 @@
-<!-- BEGIN PAGE HEADER-->
+
+    
+    
+    
+ <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -6,7 +20,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="#/ng_ui_bootstrap.html">Suppliers list</a>
+            <a href="#/ng_ui_bootstrap.html">Suppliers Add</a>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -121,8 +135,14 @@
                         <div class="form-group">
                             <label>Speciality</label>
                             <div class="input-group">
-                              
-                                <input  ng-model="supplier.speciality" type="text" class="form-control input-circle-right" placeholder="Speciality"> </div>
+                                                     
+                                  <select  ng-model="supplier.speciality" class="form-control input-circle-right" >
+                                  <option value="Fresh Product">Fresh Product</option>
+                                  <option value="Heavy Equipments">Heavy Equipments</option>
+                                  <option value="Agriculture Product">Agriculture Product</option>
+                                  <option value="Beauty Product">Beauty Product</option>
+                                  <option value="Others" selected>Others</option>
+                                  </select>
                         </div>
                         
                     </div>
@@ -139,3 +159,32 @@
 </div>
 <!-- END MAIN CONTENT -->
 <!-- BEGIN MAIN JS -->
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>

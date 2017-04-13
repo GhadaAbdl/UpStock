@@ -1,4 +1,16 @@
-<!-- BEGIN PAGE HEADER-->
+
+    
+ <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    <!-- BEGIN PAGE HEADER-->
 <div class="page-bar" >
     <ul class="page-breadcrumb">
         <li>
@@ -51,17 +63,19 @@
 </h3>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
+
 <div class="row" ng-controller="suppliers" >
+    <div class="form-group">
+      <div class="input-group">
+                           
+     <input class="form-control input-circle-right" size="16"  type="text" placeholder="Search By Name" ng-model="searchText.name">
+ </div>
+ </div>
+ 
     <div class="col-md-12">
        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1"  >
                     <thead>
                         <tr>
-                            <th>
-                                <label class="mt-checkbox mt-checkbox-outline mt-checkbox-single">
-                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" />
-                                    <span></span>
-                                </label>
-                            </th>
                             <th> Name </th>
                             <th> Email </th>
                             <th> Adress </th>
@@ -71,13 +85,8 @@
                     </thead>
                     <tbody>
       
-                        <tr class="odd gradeX" ng-repeat="data in supplier">
-                            <td>
-                                <label class="mt-checkbox mt-checkbox-outline mt-checkbox-single">
-                                    <input type="checkbox" class="checkboxes" value="1" />
-                                    <span></span>
-                                </label>
-                            </td>
+                        <tr class="odd gradeX" ng-repeat="data in supplierList | filter: searchText ">
+                         
                             <td>{{data.name}} </td>
                             <td>
                                 <a href="mailto:"+{{data.email}}> {{data.email}} </a>
@@ -88,57 +97,31 @@
                             <td>
                               
                           <button type="submit" ng-click="edit(data._id)" class="btn blue">Edit</button>
-                           <button type="submit" ng-click="remove(data._id)" class="btn red">Remove</button>
+                           <button type="submit" ng-click="removeget(data._id)" class="btn red">Remove</button>
 
                             </td>
                         </tr>
                     
                         
-               <!-- Form Update -->
-                        
-                    </tbody>
-                </table>
-    
-                    <div class="form-body">
-                         <div class="form-group">
-                            <label>Name</label>
-                            <div class="input-group">
-                              
-                                <input  type="text" class="form-control input-circle-right" placeholder="name" ng-model="supplier.name"> </div>
-                        </div>
-                         <div class="form-group">
-                            <label>Adress</label>
-                            <div class="input-group">
-                              
-                                <input  ng-model="supplier.adress" type="text" class="form-control input-circle-right" placeholder="Adress"> </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Email</label>
-                            <div class="input-group">
-                              
-                                <input ng-model="supplier.email" type="email" class="form-control input-circle-right" placeholder="Email"> </div>
-                        </div>
-                         <div class="form-group">
-                            <label>Number</label>
-                            <div class="input-group">
-                              
-                                <input  ng-model="supplier.number" type="number" class="form-control input-circle-right" placeholder="Number"> </div>
-                        </div> 
-                        <div class="form-group">
-                            <label>Speciality</label>
-                            <div class="input-group">
-                              
-                                <input  ng-model="supplier.speciality" type="text" class="form-control input-circle-right" placeholder="Speciality"> </div>
-                        </div>
-                        
-                    </div>
-                    <div class="form-actions">
-                         <a href="#/ui_bootstrap.html"> <button type="submit" ng-click="update()" class="btn blue">Submit</button></a>
-                    </div>
-               
-            </div>    
+             
     </div>
 </div>
 <!-- END MAIN CONTENT -->
 <!-- BEGIN MAIN JS -->
+
+    
+    
+    
+    
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>

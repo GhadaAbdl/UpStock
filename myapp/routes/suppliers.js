@@ -3,7 +3,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
 var supplierDataSchema = new Schema({
   name: String,
   adress : String,

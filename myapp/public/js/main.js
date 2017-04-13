@@ -93,7 +93,9 @@ MetronicApp.controller('profile', ['$scope', '$rootScope', '$http',function($sco
 }]);
 
 
-MetronicApp.controller('suppliers', ['$scope', '$rootScope', '$http',function($scope, $rootScope ,$http ) {
+/////////////////////////////// SUPPLIER PART ////////////////////////////////////////
+
+MetronicApp.controller('suppliers', ['$scope', '$rootScope', '$http' ,'$location' ,'$stateParams',function($scope, $rootScope ,$http, $location,$stateParams ) {
    console.log("Profile Controller reporting for duty.");
 ///Affichage
 	 $http.get("http://localhost:3000/suppliers/get").success(function(data, status) {
@@ -101,36 +103,90 @@ MetronicApp.controller('suppliers', ['$scope', '$rootScope', '$http',function($s
   console.log(data);
    console.log('ena f ctrl suppliers');
 
-		$scope.supplier = data;
-          console.log(supplier);
+		$scope.supplierList = data;
+        console.log(supplier);
 
 	});
+
+
+var refresh = function() {
+  $http.get('http://localhost:3000/suppliers/get').success(function(response) {
+    console.log("I got the data I requested");
+    $scope.supplierList = response;
+    $scope.supplier = "";
+  });
+};
+
+
 ////Delete
     $scope.remove = function(id) {
   console.log(id);
   $http.get('http://localhost:3000/suppliers/delete/'+id).success(function(response) {
+
   });
+   $location.url('/ui_bootstrap.html');
+ $rootScope.$apply() ;
 };
 
 /////Get By one
 
 
 $scope.edit = function(id) {
-  $http.get('http://localhost:3000/suppliers/getone/'+id).success(function(response , $location) {
+  $http.get('http://localhost:3000/suppliers/getone/'+id).success(function(response ) {
 
  $scope.supplier = response;  
- $location.url('/editSupplier.html');
-console.log('ghhhhhhhhhhhhada'+response);
+ $location.url('/editSupplier.html').search({param: id});
+ $rootScope.$apply() ;
+console.log('ghhhhhhhhhhhhada'+supplier);
+})
+};
+
+$scope.removeget = function(id) {
+  $http.get('http://localhost:3000/suppliers/getone/'+id).success(function(response ) {
+
+ $scope.supplier = response;  
+ $location.url('/supplierView.html').search({param: id});
+ $rootScope.$apply() ;
+console.log('ghhhhhhhhhhhhada'+supplier);
 })
 };
 
 
-$scope.update = function() {
-  console.log($scope.supplier._id);
-  $http.post('http://localhost:3000/suppliers/update/' + $scope.supplier._id, $scope.supplier).success(function(response) {
+
+$scope.editget = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/suppliers/getone/'+x.param).success(function(response ) {
+
+ $scope.supplier = response;  
+ 
+console.log('ghada tu est au niveay edit get'+x);
+})
+};
+
+
+$scope.removegetparams = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/suppliers/getone/'+x.param).success(function(response ) {
+
+ $scope.supplier = response;  
+ 
+console.log('ghada tu est au niveay edit get'+x);
+})
+};
+
+
+$scope.update = function(id) {
+  $http.post('http://localhost:3000/suppliers/update/'+id, $scope.supplier).success(function(response) {
+          refresh();
+ $location.url('/ui_bootstrap.html');
+ $rootScope.$apply() ;
 
   })
 };
+
+
 
 
 }]);
@@ -150,9 +206,572 @@ MetronicApp.controller('addsupp', ['$scope', '$rootScope', '$http' ,function($sc
 };
 }]);
 
+MetronicApp.controller('home', ['$scope', '$rootScope', '$http' ,function($scope, $rootScope ,$http,$window) {
+   console.log("Controller Add Supplier Begin");
+
+  $scope.logout = function() {
+  $http.get('http://localhost:3000/users/logout').success(function() {
+
+ });
+};
+}]);
+
+/////////////////////////////// SUPPLIER PART END////////////////////////////////////////
+
+
+////////////////////////////// CLIENTS PART BEGIN //////////////////////////////////////////
+
+
+MetronicApp.controller('clients', ['$scope', '$rootScope', '$http' ,'$location' ,'$stateParams',function($scope, $rootScope ,$http, $location,$stateParams ) {
+
+///Affichage
+	 $http.get("http://localhost:3000/clients/get").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  console.log(data);
+   console.log('ena f ctrl clients');
+
+		$scope.clientList = data;
+        console.log(client);
+
+	});
+
+
+var refresh = function() {
+  $http.get('http://localhost:3000/clients/get').success(function(response) {
+    console.log("I got the data I requested");
+    $scope.clientList = response;
+    $scope.client = "";
+  });
+};
+
+
+////Delete
+    $scope.remove = function(id) {
+  console.log(id);
+  $http.get('http://localhost:3000/clients/delete/'+id).success(function(response) {
+
+  });
+   $location.url('/ListClients.html');
+ $rootScope.$apply() ;
+};
+
+/////Get By one
+
+
+$scope.edit = function(id) {
+  $http.get('http://localhost:3000/clients/getone/'+id).success(function(response ) {
+
+ $scope.client = response;  
+ $location.url('/editClient.html').search({param: id});
+ $rootScope.$apply() ;
+console.log('ghhhhhhhhhhhhada'+client);
+})
+};
+
+$scope.removeget = function(id) {
+  $http.get('http://localhost:3000/clients/getone/'+id).success(function(response ) {
+
+ $scope.client = response;  
+ $location.url('/clientview.html').search({param: id});
+ $rootScope.$apply() ;
+console.log('ghhhhhhhhhhhhada'+client);
+})
+};
+
+
+
+$scope.editget = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/clients/getone/'+x.param).success(function(response ) {
+
+ $scope.client = response;  
+ 
+console.log('ghada tu est au niveay edit get'+x);
+})
+};
+
+
+$scope.removegetparams = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/clients/getone/'+x.param).success(function(response ) {
+
+ $scope.client = response;  
+ 
+console.log('ghada tu est au niveay edit get'+x);
+})
+};
+
+
+$scope.update = function(id) {
+  $http.post('http://localhost:3000/clients/update/'+id, $scope.client).success(function(response) {
+          refresh();
+ $location.url('/ListClients.html');
+ $rootScope.$apply() ;
+
+  })
+};
+
+
+
+
+}]);
+
+
+
+MetronicApp.controller('addClient', ['$scope', '$rootScope', '$http' ,function($scope, $rootScope ,$http,$window) {
+   console.log("Controller Add Client Begin");
+
+  $scope.addClient = function() {
+  $http.post('http://localhost:3000/clients/add', $scope.client).success(function(response) {
+  console.log(response);
+
+
+ });
+};
+}]);
+
+MetronicApp.controller('home', ['$scope', '$rootScope', '$http' ,function($scope, $rootScope ,$http,$window) {
+   console.log("Controller Add Supplier Begin");
+
+  $scope.logout = function() {
+  $http.get('http://localhost:3000/users/logout').success(function() {
+
+ });
+};
+}]);
+
+///////////////////////////// CLIENTS PART END /////////////////////////////////////////////
+
+
+
+
+
+/////////////// Partie Login/Register //////////////////////////
+
+MetronicApp.controller('auth', ['$scope', '$rootScope', '$http' ,'$window' ,'$location' ,function($scope, $rootScope ,$http ,$window ,$location) {
+   console.log("Controller Register");
+
+  $scope.register = function() {
+  console.log("lalalalallala" +$scope.test);
+  $http.post('http://localhost:3000/users/register', $scope.test).success(function(response) {
+  console.log(response);
+
+ });
+};
+
+  $scope.login = function() {
+
+  $http.post('http://localhost:3000/users/authenticate', $scope.test).success(function(response) {
+  console.log(response);
+
+  console.log("I Am The Token" +response.token);
+ 
+      $window.localStorage['mean-token'] = response.token;
+   $location.url('/profile');
+ $rootScope.$apply() ;
+   
+ });
+};
+
+
+  $scope.getProfile = function() {
+
+  
+  var yourToken = $window.localStorage['mean-token'];
+
+  $http.get('http://localhost:3000/users/profile', {
+        headers: {
+          Authorization: yourToken
+        }
+      }).success(function(data,status) {
+
+  console.log(data);
+
+  $scope.connected = data ;
+   
+ });
+};
+
+$scope.logout = function() {
+
+  
+      $window.localStorage.removeItem('mean-token');
+      $location.url('/login');
+      $rootScope.$apply() ;
+
+};
+
+
+}]);
+
+////////////////////////END LOGIN REGISTER //////////////////////////////////////
+
+
+
+
+///////////// NAZOU STANCEWORK
+///affichage
+MetronicApp.controller('reclamation', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+    console.log("Profile Controller reporting for duty.");
+    ///Affichage
+    function updatelist(){
+        $scope.interact = false;
+$http.get("http://localhost:3000/reclamation/get").success(function (recdata, status) {
+
+        $scope.reclamation = recdata;
+    });
+    $http.get("http://localhost:3000/products/get").success(function (data, status) {
+        $scope.myVar = 'Profile Page';
+
+        $scope.products = data;
+
+$scope.interact = true;
+
+        for (var i = 0; i < $scope.products.length; i++) {
+            var p = $scope.products[i];
+            for (var j = 0; j < $scope.reclamation.length; j++) {
+                var r = $scope.reclamation[j];
+                if (r.tag != null) {
+                    if (r.tag == p.tag) {
+                        p.hidden = "hide";
+                        console.log(p.hidden);
+                    }
+                }
+
+
+            }
+            if (((p.humidity / p.idealhumidity) != 1) & ((p.temperture / p.idealtemperature) != 1)) {
+                p.general_color = "red";
+
+            }
+            else if (((p.temperture / p.idealtemperature) != 1) & ((p.humidity / p.idealhumidity) == 1)) {
+                p.temperature_color = "yellow";
+            }
+            else if (((p.temperture / p.idealtemperature) == 1) & ((p.humidity / p.idealhumidity) != 1)) {
+                p.humidity_color = "bleu";
+            }
+
+
+
+        }
+
+
+    });
+}
+updatelist();
+    
+
+    $scope.GeneralRec = function (tag) {
+        $http.post('http://localhost:3000/reclamation/addall/' + tag).success(function (response) {
+            updatelist();
+
+        });
+    };
+    $scope.TempertureRec = function (tag) {
+        $http.post('http://localhost:3000/reclamation/addtemp/' + tag).success(function (response) {
+            updatelist();
+
+        });
+    };
+    $scope.HumidityRec = function (tag) {
+        $http.post('http://localhost:3000/reclamation/addhumi/' + tag).success(function (response) {
+            updatelist();
+
+        });
+    };
+
+}]);
+//////remove reclamation
+
+MetronicApp.controller('claims', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+    $scope.interact = true;
+    function updateClaims() {
+        $scope.interact = false;
+        $http.get("http://localhost:3000/reclamation/get").success(function (claim, status) {
+
+            $scope.interact = true;
+            $scope.lclaims = claim;
+        });
+    }
+    updateClaims();
+    $scope.remove = function (id) {
+        console.log(id);
+        $http.get('http://localhost:3000/reclamation/remove/' + id).success(function (response) {
+
+            updateClaims();
+
+        });
+
+    };
+}]);
+
+
+
+
+/**
+
+MetronicApp.controller('login', ['$scope', '$rootScope', '$http',"$window" ,function($scope, $rootScope ,$http ,$window) {
+   console.log("Controller Login");
+
+  $scope.login = function() {
+  console.log("lalalalallala" +$scope.test);
+  $http.post('http://localhost:3000/users/authenticate', $scope.test).success(function(response) {
+  console.log(response);
+
+ });
+};
+}]);
+
+**/
 
 
 ///////////////END GHADA WORK 
+
+
+////////////////// begin hafedh 
+MetronicApp.controller('employee', ['$scope', '$rootScope', '$http' ,'$location' ,'$stateParams',function($scope, $rootScope ,$http, $location,$stateParams) {
+   console.log("Profile Controller reporting for duty.");
+///Affichage
+	 $http.get("http://localhost:3000/employees/get").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  console.log(data);
+   console.log('ena f ctrl product');
+
+		$scope.emplyeetList = data;
+      
+
+	});
+
+
+/*var reloadPage = function() {
+  $http.get('http://localhost:3000/suppliers/get').success(function(response) {
+    console.log("I got the data I requested");
+    $scope.supplierList = response;
+    $scope.supplier = "";
+  });
+};
+*/
+function updatelist(){
+       $http.get("http://localhost:3000/employees/get").success(function(data, status) {
+		$scope.emplyeetList = data;
+   }
+                                                               
+                                                              ) }
+    updatelist();
+    
+////Delete
+    $scope.remove = function(id) {
+  console.log(id);
+  $http.get('http://localhost:3000/employees/delete/'+id).success(function(response) {
+   updatelist();
+  });
+$state.reload();
+ $rootScope.$apply() ;
+};
+   
+
+/////Get By one
+
+
+$scope.edit = function(id) {
+  $http.get('http://localhost:3000/employees/getone/'+id).success(function(response ) {
+ updatelist();
+ $scope.employee = response;  
+ $location.url('/editEmployee.html').search({param: id});
+ $rootScope.$apply() ;
+
+})
+};
+/*
+$scope.removeget = function(id) {
+  $http.get('http://localhost:3000/suppliers/getone/'+id).success(function(response ) {
+
+ $scope.supplier = response;  
+ $location.url('/supplierView.html').search({param: id});
+ $rootScope.$apply() ;
+
+})
+};
+
+
+*/
+$scope.editget = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/employees/getone/'+x.param).success(function(response ) {
+ 
+ $scope.employee = response;  
+       
+ 
+
+})
+};
+
+/*
+$scope.removegetparams = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/suppliers/getone/'+x.param).success(function(response ) {
+
+ $scope.supplier = response;  
+ 
+console.log('ghada tu est au niveay edit get'+x);
+})
+};
+
+*/
+$scope.update = function(id) {
+  $http.post('http://localhost:3000/employees/update/'+id, $scope.employee).success(function(response) {
+          refresh();
+ $location.url('/blank');
+ $rootScope.$apply() ;
+
+
+
+  })
+};
+
+
+
+
+}]);
+
+MetronicApp.controller('addemployee', ['$scope', '$rootScope', '$http' ,function($scope, $rootScope ,$http,$window) {
+   console.log("Controller Add employee Begin");
+
+  $scope.addEmployee = function() {
+  console.log("kkkkkkk"+$scope.employee);
+  $http.post('http://localhost:3000/employees/add', $scope.employee).success(function(response) {
+  console.log(response);
+
+
+ });
+};
+}]); // end hafedh
+////////////////// begin khalil
+MetronicApp.controller('products', ['$scope', '$rootScope', '$http' ,'$location' ,'$stateParams',function($scope, $rootScope ,$http, $location,$stateParams) {
+   console.log("Profile Controller reporting for duty.");
+///Affichage
+	 $http.get("http://localhost:3000/products/get").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  console.log(data);
+   console.log('ena f ctrl product');
+
+		$scope.productList = data;
+        console.log(product);
+
+	});
+
+
+/*var reloadPage = function() {
+  $http.get('http://localhost:3000/suppliers/get').success(function(response) {
+    console.log("I got the data I requested");
+    $scope.supplierList = response;
+    $scope.supplier = "";
+  });
+};
+*/
+
+////Delete
+   function updatelist(){
+       $http.get("http://localhost:3000/products/get").success(function(data, status) {
+		$scope.productList = data;
+   }
+                                                               
+                                                              ) }
+    updatelist();
+    
+    $scope.remove1 = function(id) {
+   $http.get('http://localhost:3000/products/delete/'+id).success(function(response) {
+updatelist();
+  });
+$state.reload();
+ $rootScope.$apply() ;
+};
+    $scope.remove2 = function(id) {
+ 
+  $http.get('http://localhost:3000/products/delete/'+id).success(function(response) {
+ updatelist();
+  });
+  $state.reload();
+ $rootScope.$apply() ;
+};
+
+/////Get By one
+
+
+$scope.edit = function(id) {
+  $http.get('http://localhost:3000/products/getone/'+id).success(function(response ) {
+updatelist();
+ $scope.product = response;  
+ $location.url('/editProduct.html').search({param: id});
+ $rootScope.$apply() ;
+
+})
+};
+/*
+$scope.removeget = function(id) {
+  $http.get('http://localhost:3000/suppliers/getone/'+id).success(function(response ) {
+
+ $scope.supplier = response;  
+ $location.url('/supplierView.html').search({param: id});
+ $rootScope.$apply() ;
+console.log('ghhhhhhhhhhhhada'+supplier);
+})
+};
+
+*/
+
+$scope.editget = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/products/getone/'+x.param).success(function(response ) {
+ $scope.product = response;  
+ 
+})
+};
+/*
+
+$scope.removegetparams = function() {
+
+var x = $location.search();
+  $http.get('http://localhost:3000/suppliers/getone/'+x.param).success(function(response ) {
+
+ $scope.supplier = response;  
+ 
+console.log('ghada tu est au niveay edit get'+x);
+})
+};
+*/
+
+$scope.update = function(id) {
+  $http.post('http://localhost:3000/products/update/'+id, $scope.product).success(function(response) {
+          refresh();
+ $location.url('/datatables/managed.html');
+ $rootScope.$apply() ;
+
+  })
+};
+
+
+
+
+}]);
+
+MetronicApp.controller('addproduct', ['$scope', '$rootScope', '$http' ,function($scope, $rootScope ,$http,$window) {
+   console.log("Controller Add product Begin");
+
+  $scope.addProduct = function() {
+  console.log("kkkkkkk"+$scope.product);
+  $http.post('http://localhost:3000/products/add', $scope.product).success(function(response) {
+  console.log(response);
+
+
+ });
+};
+}]); // end khalil
 
 /* Setup Layout Part - Quick Sidebar */
 MetronicApp.controller('QuickSidebarController', ['$scope', function($scope) {    
@@ -180,7 +799,7 @@ MetronicApp.controller('FooterController', ['$scope', function($scope) {
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     // Redirect any unmatched url
-    $urlRouterProvider.otherwise("/dashboard");  
+    $urlRouterProvider.otherwise("/login.html");  
 
     $stateProvider
 
@@ -208,6 +827,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                 }]
             }
         })
+
 
         // Blank Page
         .state('blank', {
@@ -294,6 +914,78 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             }
         })
 
+      .state('editClient', {
+            url: "/editClient.html",
+            templateUrl: "views/editClient.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+
+
+
+.state('ListClients', {
+            url: "/ListClients.html",
+            templateUrl: "views/ListClients.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+.state('clientview', {
+            url: "/clientview.html",
+            templateUrl: "views/clientview.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+
+
+.state('addClient', {
+            url: "/addClient.html",
+            templateUrl: "views/addClient.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+
+
+
            .state('addsupplier', {
             url: "/addSupplier.html",
             templateUrl: "views/addSupplier.html",
@@ -313,6 +1005,112 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
    .state('editsupplier', {
             url: "/editSupplier.html",
             templateUrl: "views/editSupplier.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+
+        .state('supplierView', {
+            url: "/supplierView.html",
+            templateUrl: "views/supplierView.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+
+
+
+
+
+         .state('addemployee', {
+            url: "/addEmployee.html",
+            templateUrl: "views/addEmployee.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+ 
+    
+     .state('editemployee', {
+            url: "/editEmployee.html",
+            templateUrl: "views/editEmployee.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+ .state('editproduct', {
+            url: "/editProduct.html",
+            templateUrl: "views/editProduct.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+
+
+     .state('login', {
+            url: "/login.html",
+            templateUrl: "views/login.html",
+            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            controller: "GeneralPageController",
+            resolve: {
+                deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                        name: 'MetronicApp',
+                        files: [
+                            'js/controllers/GeneralPageController.js'
+                        ] 
+                    }]);
+                }] 
+            }
+        })
+     .state('register', {
+            url: "/register.html",
+            templateUrl: "views/register.html",
             data: {pageTitle: 'AngularJS UI Bootstrap'},
             controller: "GeneralPageController",
             resolve: {
@@ -549,16 +1347,15 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
             data: {pageTitle: 'User Help'}      
         })
 
-        // Todo
-        .state('todo', {
-            url: "/todo",
-            templateUrl: "views/todo.html",
-            data: {pageTitle: 'Todo'},
+         .state('reclamation', {
+            url: "/reclamation",
+            templateUrl: "views/reclamation.html",
+            data: { pageTitle: 'reclamation' },
             controller: "TodoController",
             resolve: {
-                deps: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({ 
-                        name: 'MetronicApp',  
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
                         insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
                         files: [
                             'assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
@@ -567,13 +1364,42 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
                             'assets/global/plugins/select2/css/select2-bootstrap.min.css',
 
                             'assets/global/plugins/select2/js/select2.full.min.js',
-                            
+
                             'assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
 
                             'assets/apps/scripts/todo-2.min.js',
 
-                            'js/controllers/TodoController.js'  
-                        ]                    
+                            'js/controllers/TodoController.js'
+                        ]
+                    });
+                }]
+            }
+        })
+
+         .state('list_reclamation', {
+            url: "/list_reclamation",
+            templateUrl: "views/list_reclamation.html",
+            data: { pageTitle: 'list_reclamation' },
+            controller: "TodoController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'MetronicApp',
+                        insertBefore: '#ng_load_plugins_before', // load the above css files before '#ng_load_plugins_before'
+                        files: [
+                            'assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css',
+                            'assets/apps/css/todo-2.css',
+                            'assets/global/plugins/select2/css/select2.min.css',
+                            'assets/global/plugins/select2/css/select2-bootstrap.min.css',
+
+                            'assets/global/plugins/select2/js/select2.full.min.js',
+
+                            'assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js',
+
+                            'assets/apps/scripts/todo-2.min.js',
+
+                            'js/controllers/TodoController.js'
+                        ]
                     });
                 }]
             }

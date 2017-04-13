@@ -354,7 +354,7 @@
                     <span class="username username-hide-on-mobile"> khalil </span>
                     <i class="fa fa-angle-down"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-default">
+                <ul class="dropdown-menu dropdown-menu-default" ng-controller="home">
                     <li>
                         <a href="#/profile/dashboard">
                             <i class="icon-user"></i> My Profile </a>
@@ -381,8 +381,8 @@
                             <i class="icon-lock"></i> Lock Screen </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="icon-key"></i> Log Out </a>
+                        <a ng-click="logout()">
+                            <i class="icon-key" ></i> Log Out </a>
                     </li>
                 </ul>
             </li>

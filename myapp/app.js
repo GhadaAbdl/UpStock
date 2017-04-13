@@ -1,91 +1,73 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
-var expressValidator = require('express-validator');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const config = require('./config/database');
+
+// Connect To Database
+mongoose.connect(config.database);
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://user:esprit123@ds133290.mlab.com:33290/upstock');
-var db = mongoose.connection;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var products = require('./routes/products');
+// On Connection
+mongoose.connection.on('connected', () => {
+  console.log('Connected to database '+config.database);
+});
+
+// On Error
+mongoose.connection.on('error', (err) => {
+  console.log('Database error: '+err);
+});
+
+const app = express();
+
+const users = require('./routes/users');
+const index = require('./routes/index');
 var suppliers = require('./routes/suppliers');
+var clients = require('./routes/clients');
+var reclamation = require('./routes/reclamation');
+var products = require('./routes/products');
+var employees = require('./routes/employees');
 
 
 
-// Init App
-var app = express();
 
-// View Engine
+
+// Port Number
+const port = 3000;
+
+// CORS Middleware
+app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
-
-// BodyParser Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Express Session
-app.use(session({
-    secret: 'secret',
-    saveUninitialized: true,
-    resave: true
-}));
+// Body Parser Middleware
+app.use(bodyParser.json());
 
-// Passport init
+// Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+require('./config/passport')(passport);
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+app.use('/users', users);
+app.use('/', index);
+app.use('/suppliers', suppliers);
+app.use('/clients', clients);
+app.use('/reclamation', reclamation);
+app.use('/products', products);
+app.use('/employees', employees);
 
-// Connect Flash
-app.use(flash());
 
-// Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
+// Index Route
+app.get('/', (req, res) => {
+  res.send('Invalid Endpoint');
 });
 
-
-
-app.use('/', routes);
-app.use('/users', users);
-app.use('/products', products);
-app.use('/suppliers', suppliers);
-
-
-
-
-module.exports = app;
+// Start Server
+app.listen(port, () => {
+  console.log('Server started on port '+port);
+});

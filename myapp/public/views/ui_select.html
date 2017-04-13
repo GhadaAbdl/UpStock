@@ -1,155 +1,144 @@
-<!-- BEGIN PAGE HEADER-->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="#/dashboard.html">Home</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <a href="#/ui_select.html">UI Select</a>
-        </li>
-    </ul>
-    <div class="page-toolbar">
-        <div class="btn-group pull-right">
-            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover data-delay="1000" data-close-others="true"> Actions
-                <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li>
-                    <a href="#">
-                        <i class="icon-user"></i> New User </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-present"></i> New Event
-                        <span class="badge badge-success">4</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-basket"></i> New order </a>
-                </li>
-                <li class="divider"> </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-flag"></i> Pending Orders
-                        <span class="badge badge-danger">4</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-users"></i> Pending Users
-                        <span class="badge badge-warning">12</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<h3 class="page-title"> UI Select
-    <small>AngularJS-native version of Select2</small>
-</h3>
-<!-- END PAGE HEADER-->
-<!-- BEGIN MAIN CONTENT -->
-<div class="note note-success">
-    <h3>UI Select</h3>
-    <p> AngularJS-native version of Select2 </p>
-    <p> For more info please check the
-        <a href="https://github.com/angular-ui/ui-select">official github page</a>
-    </p>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="portlet light bordered" ng-controller="UISelectController as ctrl">
-            <div class="portlet-title">
-                <div class="caption font-green-sharp">
-                    <i class="icon-settings font-green-sharp"></i>
-                    <span class="caption-subject bold uppercase">UI Select Demo</span>
-                    <span class="caption-helper"> Selected: {{ctrl.person.selected.name}} </span>
+
+
+        <!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 4.6
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>UpStock | User Login</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="../../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="../../assets/pages/css/login-4.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <!-- END HEAD -->
+
+    <body class=" login"  >
+      	<div class="container">
+      <div class="header clearfix">
+     
+        <div class="logo">
+            <a href="">
+                <img src="../../assets/layouts/layout/img/LogoFinal.png" alt="" /> </a>
+        </div>>
+      </div>
+
+
+      <div class="row">
+       
+        <!-- BEGIN LOGO -->
+        
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN -->
+        <div class="content">
+                 <!-- BEGIN LOGIN FORM -->
+            <form class="login-form" ng-controller="login" ng-submit="login()">
+                <h3 class="form-title">Login to your account</h3>
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span> Enter any username and password. </span>
                 </div>
-                <div class="actions">
-                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                        <i class="icon-cloud-upload"></i>
-                    </a>
-                    <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                        <i class="icon-wrench"></i>
-                    </a>
+               <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter email" ng-model="test.username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="test.password">
+  </div>
+                <div class="form-actions">
+                    <label class="rememberme mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" name="remember" value="1" /> Remember me
+                        <span></span>
+                    </label>
+                    <button type="submit" class="btn green pull-right"> Login </button>
                 </div>
-            </div>
-            <div class="portlet-body">
-                <form class="form-horizontal" role="form">
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Default</label>
-                            <div class="col-sm-6">
-                                <ui-select ng-model="ctrl.person.selected" theme="bootstrap">
-                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="item in ctrl.people | filter: $select.search">
-                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
-                                        <small ng-bind-html="item.email | highlight: $select.search"></small>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Grouped</label>
-                            <div class="col-sm-6">
-                                <ui-select ng-model="ctrl.person.selected" theme="bootstrap">
-                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices group-by="'country'" repeat="item in ctrl.people | filter: $select.search">
-                                        <span ng-bind-html="item.name | highlight: $select.search"></span>
-                                        <small ng-bind-html="item.email | highlight: $select.search"></small>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">With a clear button</label>
-                            <div class="col-sm-6">
-                                <div class="input-group">
-                                    <ui-select allow-clear ng-model="ctrl.person.selected" theme="bootstrap">
-                                        <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-                                        <ui-select-choices repeat="item in ctrl.people | filter: $select.search">
-                                            <span ng-bind-html="item.name | highlight: $select.search"></span>
-                                            <small ng-bind-html="item.email | highlight: $select.search"></small>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                    <span class="input-group-btn">
-                                        <button type="button" ng-click="ctrl.person.selected = undefined" class="btn btn-default">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Disabled</label>
-                            <div class="col-sm-6">
-                                <ui-select ng-model="ctrl.person.selected" theme="bootstrap" ng-disabled="true">
-                                    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="item in ctrl.people | filter: $select.search">
-                                        <div ng-bind-html="item.name | highlight: $select.search"></div>
-                                        <small ng-bind-html="item.email | highlight: $select.search"></small>
-                                    </ui-select-choices>
-                                </ui-select>
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <div class="row">
-                                <div class="col-md-offset-3 col-md-9">
-                                    <button type="submit" class="btn green">Submit</button>
-                                    <button type="button" class="btn default">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                
+                
+                <div class="create-account">
+                    <p> Don't have an account yet ?&nbsp;
+                        <a href="javascript:;" id="register-btn"> Create an account </a>
+                    </p>
+                </div>
+            </form>
+            <!-- END LOGIN FORM -->
+            <!-- BEGIN FORGOT PASSWORD FORM -->
+            
+            <!-- END FORGOT PASSWORD FORM -->
+            <!-- BEGIN REGISTRATION FORM -->
+           
+                <h3>Sign Up</h3>
+          
+            <!-- END REGISTRATION FORM -->
         </div>
-    </div>
-</div>
-<!-- END MAIN CONTENT -->
-<!-- BEGIN MAIN JS-->
-<script>
-</script>
-<!-- BEGIN MAIN JS -->
+        <!-- END LOGIN -->
+        <!-- BEGIN COPYRIGHT -->
+        <div class="copyright"> 2017 &copy; UpStock . </div>
+        <!-- END COPYRIGHT -->
+        <!--[if lt IE 9]>
+<script src="assets/global/plugins/respond.min.js"></script>
+<script src="assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../../assets/pages/scripts/login-4.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </body>
+
+</html>

@@ -1,4 +1,14 @@
-<!-- BEGIN PAGE HEADER-->
+<div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -49,20 +59,20 @@
 <h3 class="page-title"> Profile </h3>
 <!-- END PAGE HEADER-->
 <!-- BEGIN PAGE CONTENT-->
-<div class="row" ng-controller="UserProfileController">
-    <div class="col-md-12">
+<div class="row" ng-controller="auth">
+    <div class="col-md-12"  ng-init="getProfile()">
         <!-- BEGIN PROFILE SIDEBAR -->
         <div class="profile-sidebar">
             <!-- PORTLET MAIN -->
-            <div class="portlet light profile-sidebar-portlet">
+            <div class="portlet light profile-sidebar-portlet" >
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
                     <img src="{{settings.assetsPath}}/pages/media/profile/profile_user.jpg" class="img-responsive" alt=""> </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
-                <div class="profile-usertitle">
-                    <div class="profile-usertitle-name"> niazi chaari </div>
-                    <div class="profile-usertitle-job"> Manager </div>
+                <div class="profile-usertitle" >
+                    <div class="profile-usertitle-name"> {{connected.user.username}} </div>
+                    <div class="profile-usertitle-job"> {{connected.user.email}} </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
                 <!-- SIDEBAR BUTTONS -->
@@ -95,35 +105,22 @@
             <!-- PORTLET MAIN -->
             <div class="portlet light">
                 <!-- STAT -->
-                <div class="row list-separated profile-stat">
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="uppercase profile-stat-title"> 37 </div>
-                        <div class="uppercase profile-stat-text"> Projects </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="uppercase profile-stat-title"> 51 </div>
-                        <div class="uppercase profile-stat-text"> Tasks </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-6">
-                        <div class="uppercase profile-stat-title"> 61 </div>
-                        <div class="uppercase profile-stat-text"> Uploads </div>
-                    </div>
-                </div>
+              
                 <!-- END STAT -->
                 <div>
                     <h4 class="profile-desc-title"></h4>
                     <span class="profile-desc-text">  </span>
                     <div class="margin-top-20 profile-desc-link">
                         <i class="fa fa-globe"></i>
-                        <a href="http://www.keenthemes.com">www.PI.com</a>
+                        <a href="http://www.keenthemes.com">www.UpStock.com</a>
                     </div>
                     <div class="margin-top-20 profile-desc-link">
                         <i class="fa fa-twitter"></i>
-                        <a href="http://www.twitter.com/keenthemes/">@PI</a>
+                        <a href="http://www.twitter.com/keenthemes/">@UpStock</a>
                     </div>
                     <div class="margin-top-20 profile-desc-link">
                         <i class="fa fa-facebook"></i>
-                        <a href="http://www.facebook.com/keenthemes/">Pi</a>
+                        <a href="http://www.facebook.com/keenthemes/">#UpStock</a>
                     </div>
                 </div>
             </div>
@@ -136,3 +133,18 @@
     </div>
 </div>
 <!-- END PAGE CONTENT-->
+
+
+
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>

@@ -1,4 +1,30 @@
-<!-- BEGIN PAGE HEADER-->
+
+    
+    
+ <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -111,7 +137,7 @@
                 <div class="caption">
                     <i class="fa fa-shopping-cart"></i> Product Listing </div>
                 <div class="actions">
-                    <a href="#" class="btn btn-outline green">
+                    <a href="#/form-tools" class="btn btn-outline green">
                         <i class="fa fa-plus"></i>
                         <span class="hidden-480"> New Product </span>
                     </a>
@@ -119,20 +145,9 @@
                   
                 </div>
             </div>
-            <div class="portlet-body">
-                <div class="table-container">
-                    <div class="table-actions-wrapper">
-                        <span> </span>
-                        <select class="table-group-action-input form-control input-inline input-small input-sm">
-                            <option value="">Select...</option>
-                            <option value="Cancel">Cancel</option>
-                            <option value="Cancel">Hold</option>
-                            <option value="Cancel">On Hold</option>
-                            <option value="Close">Close</option>
-                        </select>
-                        <button class="btn btn-sm btn-outline green table-group-action-submit">
-                            <i class="fa fa-check"></i> Submit</button>
-                    </div>
+          <div class="portlet-body">
+                <div class="table-container" ng-controller="products">
+                    
                     <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
                         <thead>
                             <tr role="row" class="heading">
@@ -144,24 +159,31 @@
                                 </th>
                                 <th width="5%"> Name </th>
                                  <th width="10%"> Type </th>
-                                <th width="15%"> unitPrice </th>
-                                <th width="15%"> totalPrice </th>
-                                <th width="10%"> packPrice </th>
-                               
-                                 <th width="10%"> position </th>
                                 <th width="10%"> quantity </th>
-                                <th width="10%"> ?? </th>
+                                <th width="15%"> unitPrice </th>
+                                <th width="10%"> packPrice </th>
+                                <th width="15%"> totalPrice </th>
+                                
+                                
+                           
                             </tr>
                             
                         </thead>
-                        <tbody> <tr>
-                        <th width="2%">
+                        <tbody> <tr ng-repeat="data in productList" ng-if="data.tag=='b61e7941'">
+                        <th width="2%" >
                                     <label class="mt-checkbox mt-checkbox-outline mt-checkbox-single">
                                         <input type="checkbox" class="group-checkable">
                                         <span></span>
                                     </label>
                                 </th>
-                                <th>fffff</th>
+                                <th>{{data.name}}</th>
+                            <th>{{data.type}}</th>
+                            <th>{{data.quantity}}</th>
+                            <th>{{data.unitPrice}}</th>
+                            <th>{{data. packPrice}}</th>
+                            <th>{{data.totalPrice}}</th>
+                            <th>  <a href="#/datatables/ajax.html"> <button type="submit" ng-click="remove1(data._id)" class="btn red">Remove</button> </a><th>
+                        <th><button type="submit" ng-click="edit(data._id)" class="btn blue">Edit</button></th>
                         </tr> </tbody>
                      
                     </table>
@@ -175,3 +197,26 @@
 <!-- BEGIN MAIN JS -->
 
 <!-- END MAIN JS -->
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+

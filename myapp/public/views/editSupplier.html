@@ -1,4 +1,16 @@
-<!-- BEGIN PAGE HEADER-->
+
+    
+ <div data-ng-include="'tpl/sidebar.html'" data-ng-controller="SidebarController" class="page-sidebar-wrapper"> </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+                    <div data-ng-include="'tpl/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden-xs hidden-sm"> </div>
+                    <!-- END STYLE CUSTOMIZER -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    
+
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -6,7 +18,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="#/ng_ui_bootstrap.html">Suppliers list</a>
+            <a href="#/ng_ui_bootstrap.html">Suppliers Edit</a>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -62,7 +74,7 @@
             <div class="portlet-title">
                 <div class="caption font-red-sunglo">
                     <i class="icon-settings font-red-sunglo"></i>
-                    <span class="caption-subject bold uppercase">Add A New Supplier</span>
+                    <span class="caption-subject bold uppercase">Edit the Supplier</span>
                 </div>
                 <div class="actions">
                     <div class="btn-group">
@@ -90,9 +102,9 @@
                     </div>
                 </div>
             </div>
-            <div class="portlet-body form"  >
+            <div class="portlet-body form" ng-controller="suppliers" >
                
-                    <div class="form-body" ng-controller="suppliers">
+                    <div class="form-body"  ng-init="editget()">
                          <div class="form-group">
                             <label>Name</label>
                             <div class="input-group">
@@ -127,7 +139,7 @@
                         
                     </div>
                     <div class="form-actions">
-                      <a href="#/ui_bootstrap.html">  <button type="submit" ng-click="update()" class="btn blue">Submit</button></a>
+                      <button type="submit" ng-click="update(supplier._id)" class="btn blue">Submit</button>
                     </div>
                
             </div>
@@ -139,3 +151,25 @@
 </div>
 <!-- END MAIN CONTENT -->
 <!-- BEGIN MAIN JS -->
+                        
+
+
+
+
+
+
+
+
+
+
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+            <div data-ng-include="'tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+            <!-- END QUICK SIDEBAR -->
+        </div>
