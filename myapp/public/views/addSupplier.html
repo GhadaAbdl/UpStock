@@ -104,6 +104,7 @@
                     </div>
                 </div>
             </div>
+             <form name="myForm">
             <div class="portlet-body form"  >
                
                     <div class="form-body">
@@ -111,26 +112,37 @@
                             <label>Name</label>
                             <div class="input-group">
                               
-                                <input  type="text" class="form-control input-circle-right" placeholder="name" ng-model="supplier.name"> </div>
+                                <input  type="text" class="form-control input-circle-right" placeholder="name" ng-model="supplier.name" name="user" required> 
+                                  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                                            <span ng-show="myForm.user.$error.required">Name is required.</span>
+                                            </span>
+                                </div>
                         </div>
                          <div class="form-group">
-                            <label>Adress</label>
+                            <label>Address</label>
                             <div class="input-group">
                               
-                                <input  ng-model="supplier.adress" type="text" class="form-control input-circle-right" placeholder="Adress"> </div>
+                                <input  ng-model="supplier.adress" type="text" class="form-control input-circle-right" placeholder="Address" name="address" required> 
+                                  <span style="color:red" ng-show="myForm.address.$dirty && myForm.address.$invalid">
+                                            <span ng-show="myForm.address.$error.required">Address is required.</span>
+                                            </span>
+                                </div>
                         </div>
                         
                         <div class="form-group">
                             <label>Email</label>
                             <div class="input-group">
                               
-                                <input ng-model="supplier.email" type="email"  class="form-control input-circle-right" placeholder="Email"> </div>
+                                <input ng-model="supplier.email" type="email" name="email" class="form-control input-circle-right" placeholder="Email@email.com" required> 
+                                    <span class="error" ng-model="ok" ng-show="myForm.email.$error.email || myForm.email.$error.required && myForm.email.$touched">
+        Not valid email!</span>
+                                </div>
                         </div>
                          <div class="form-group">
                             <label>Number</label>
                             <div class="input-group">
                               
-                                <input  ng-model="supplier.number" type="number" class="form-control input-circle-right" placeholder="Number"> </div>
+                                <input  required ng-model="supplier.number" type="number" class="form-control input-circle-right" placeholder="Number"> </div>
                         </div> 
                         <div class="form-group">
                             <label>Speciality</label>
@@ -147,11 +159,12 @@
                         
                     </div>
                     <div class="form-actions">
-                      <a href="#/ui_bootstrap.html">  <button type="submit" ng-click="addSupplier()" class="btn blue">Submit</button></a>
+                      <a href="#/ui_bootstrap.html">  <button type="submit" ng-click="addSupplier()" class="btn blue" ng-disabled="supplier.number==null || supplier.name==null || supplier.adress==null ||supplier.email==null || supplier.speciality==null">Submit</button></a>
                     </div>
                
             </div>
         </div>
+             </form>
   
     </div>
 

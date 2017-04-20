@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/get', function(req, res, next) {
- console.log('testtest');
   reclamationData.find()
       .then(function(doc) {
         res.json(doc);
@@ -26,10 +25,8 @@ router.get('/get', function(req, res, next) {
         
 router.post('/addhumi/:tag', function(req, res, next) {
         var tagg=req.params.tag;
-        console.log(tagg);
        product.find({tag:tagg}).exec(function (err, doc){ 
  
-    console.log(doc[0].humidity);
     var item = {
        tag : tagg,
         user: "test",
@@ -48,10 +45,8 @@ router.post('/addhumi/:tag', function(req, res, next) {
 });
 router.post('/addtemp/:tag', function(req, res, next) {
         var tagg=req.params.tag;
-        console.log(tagg);
        product.find({tag:tagg}).exec(function (err, doc){ 
  
-    console.log(doc[0].temperture);
     var item = {
        tag : tagg,
         user: "test",
@@ -70,7 +65,6 @@ router.post('/addtemp/:tag', function(req, res, next) {
 });
 router.post('/addall/:tag', function(req, res, next) {
         var tagg=req.params.tag;
-        console.log(tagg);
        product.find({tag:tagg}).exec(function (err, doc){ 
  
    
@@ -105,6 +99,12 @@ router.post('/addall/:tag', function(req, res, next) {
  
 });
 res.end();
+});
+router.get('/notif', function(req, res, next) {
+  reclamationData.find().count(function(err, c) {
+          return res.json({ somme: c});
+      })
+ 
 });
 
 module.exports = router;

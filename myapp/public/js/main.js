@@ -483,6 +483,20 @@ updatelist();
     };
 
 }]);
+///////notification
+MetronicApp.controller('notif', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+    $http.get("http://localhost:3000/reclamation/get").success(function (claim, status) {
+
+            $scope.lclaims = claim;
+    });
+        $http.get("http://localhost:3000/reclamation/notif").success(function (notif, status) {
+
+             $scope.notification = notif;
+        });
+    
+}]);
+
+
 //////remove reclamation
 
 MetronicApp.controller('claims', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
@@ -805,7 +819,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 
         // Dashboard
         .state('dashboard', {
-            url: "/dashboard",
+            url: "/dashboard.html",
             templateUrl: "views/dashboard.html",            
             data: {pageTitle: 'Admin Dashboard Template'},
             controller: "DashboardController",

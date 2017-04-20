@@ -110,7 +110,8 @@
                     </div>
                 </div>
             </div>
-            
+                                    <form name="myForm">
+
             <div class="portlet-body form"  >
                
                     <div class="form-body">
@@ -118,26 +119,37 @@
                             <label>Name</label>
                             <div class="input-group">
                               
-                                <input  type="text" class="form-control input-circle-right" placeholder="name" ng-model="employee.name"> </div>
+                                <input  type="text" class="form-control input-circle-right" placeholder="name" ng-model="employee.name" required name="name"> 
+                                  <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                                            <span ng-show="myForm.name.$error.required">Name is required.</span></span>
+                                </div>
                         </div>
                         <div class="form-group">
                             <label>lastname</label>
                             <div class="input-group">
                               
-                                <input  ng-model="employee.lastname" type="text" class="form-control input-circle-right" placeholder="lastname"> </div>
+                                <input  ng-model="employee.lastname" type="text" class="form-control input-circle-right" placeholder="lastname" required name="last"> 
+                                <span style="color:red" ng-show="myForm.last.$dirty && myForm.last.$invalid">
+                                            <span ng-show="myForm.last.$error.required">LastName is required.</span></span>
+                                </div>
                         </div>
                          <div class="form-group">
                             <label>Adress</label>
                             <div class="input-group">
                               
-                                <input  ng-model="employee.adress" type="text" class="form-control input-circle-right" placeholder="Adress"> </div>
+                                <input  ng-model="employee.adress" type="text" class="form-control input-circle-right" placeholder="Adress" required name="adress">
+                                  <span style="color:red" ng-show="myForm.adress.$dirty && myForm.adress.$invalid">
+                                            <span ng-show="myForm.adress.$error.required">address is required.</span></span> </div>
                         </div>
                         
                         <div class="form-group">
                             <label>Email</label>
                             <div class="input-group">
                               
-                                <input ng-model="employee.email" type="email"  class="form-control input-circle-right" placeholder="Email"> </div>
+                                <input ng-model="employee.email" type="email"  class="form-control input-circle-right" placeholder="Email" required name="email">
+                                 <span class="error" ng-model="ok" ng-show="myForm.email.$error.email || myForm.email.$error.required && myForm.email.$touched">
+        Not valid email!</span>
+                                 </div>
                         </div>
                          <div class="form-group">
                             <label>Number</label>
@@ -149,24 +161,27 @@
                             <label>Salary</label>
                             <div class="input-group">
                               
-                                <input  ng-model="employee.salary" type="text" class="form-control input-circle-right" placeholder="Salary"> </div>
+                                <input  ng-model="employee.salary" type="text" class="form-control input-circle-right" placeholder="Salary" required> </div>
                         </div> 
                         <div class="form-group">
                             <label>post</label>
                             <div class="input-group">
                                                      
-                                  <select  ng-model="employee.post" class="form-control input-circle-right" >
+                                  <select  ng-model="employee.post" class="form-control input-circle-right" name="select" >
                                   <option value="manager">manager</option>
+                                  <option value="manager">other</option>
                                   </select>
+                                   
                         </div>
                         
                     </div>
                     <div class="form-actions">
-                      <a href="#/blank">  <button type="submit" ng-click="addEmployee()" class="btn blue">Submit</button></a>
+                      <a href="#/blank">  <button type="submit" ng-disabled="employee.name==null || employee.adress==null ||employee.email==null || employee.post==null || employee.lastname==null" ng-click="addEmployee()" class="btn blue">Submit</button></a>
                     </div>
                
             </div>
         </div>
+                                    </form>
   
     </div>
 

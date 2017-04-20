@@ -106,6 +106,8 @@
                     </div>
                 </div>
             </div>
+                         <form name="myForm">
+
             <div class="portlet-body form">
                 <form role="form">
                     <div class="form-body">
@@ -113,38 +115,60 @@
                             <label>name</label>
                             <div class="input-group">
                               
-                                <input ng-model="product.name" type="text" class="form-control input-circle-right" placeholder="name"> </div>
+                                <input ng-model="product.name" type="text" class="form-control input-circle-right" placeholder="name" name="user" required>
+                                <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                                            <span ng-show="myForm.user.$error.required">Name is required.</span>
+                                            </span>
+                                 </div>
                         </div>
                          <div class="form-group">
                             <label>type</label>
                             <div class="input-group">
                               
-                                <input ng-model="product.type" type="text" class="form-control input-circle-right" placeholder="type"> </div>
+                                <input ng-model="product.type" type="text" class="form-control input-circle-right" placeholder="type" required name="type">
+                                <span style="color:red" ng-show="myForm.type.$dirty && myForm.type.$invalid">
+                                            <span ng-show="myForm.type.$error.required">Type is required.</span>
+                                            </span>
+                                 </div>
                         </div>
                         
                         <div class="form-group">
                             <label>quantity</label>
                             <div class="input-group">
                               
-                                <input ng-model="product.quantity" type="text" class="form-control input-circle-right" placeholder="quantity"> </div>
+                                <input ng-model="product.quantity" type="number" class="form-control input-circle-right" placeholder="quantity" name="quantity" required> 
+                                 <span style="color:red" ng-show="myForm.quantity.$dirty && myForm.quantity.$invalid">
+                                            <span ng-show="myForm.quantity.$error.required">Quantity is required.</span>
+                                            </span>
+                                </div>
                         </div>
                          <div class="form-group">
                             <label>unitPrice</label>
                             <div class="input-group">
                               
-                                <input  ng-model="product.unitPrice" type="text" class="form-control input-circle-right" placeholder="unitPrice"> </div>
+                                <input  ng-model="product.unitPrice" type="number" class="form-control input-circle-right" placeholder="unitPrice" required name="priceuni"> 
+                                <span style="color:red" ng-show="myForm.priceuni.$dirty && myForm.priceuni.$invalid">
+                                            <span ng-show="myForm.priceuni.$error.required">UnitPrice is required.</span>
+                                            </span>
+                                </div>
                         </div> 
                         <div class="form-group">
                             <label>totalPrice</label>
                             <div class="input-group">
                               
-                                <input ng-model="product.totalPrice" type="text" class="form-control input-circle-right" placeholder="totalPrice"> </div>
+                                <input ng-model="product.totalPrice=product.quantity * product.unitPrice" type="text" class="form-control input-circle-right"  placeholder="totalPrice" disabled required name="totalPrice">
+                                <span style="color:red" ng-show="myForm.totalPrice.$dirty && myForm.totalPrice.$invalid">
+                                            <span ng-show="myForm.totalPrice.$error.required">totalPrice is required.</span></span>
+                                 </div>
                         </div>
                          <div class="form-group">
                             <label>packPrice</label>
                             <div class="input-group">
                               
-                                <input ng-model="product.packPrice" type="text" class="form-control input-circle-right" placeholder="packPrice"> </div>
+                                <input ng-model="product.packPrice=(product.totalPrice/100)*80" type="text" class="form-control input-circle-right" placeholder="packPrice" required disabled name="packPrice"> 
+                                 <span style="color:red" ng-show="myForm.packPrice.$dirty && myForm.packPrice.$invalid">
+                                            <span ng-show="myForm.packPrice.$error.required">packPrice is required.</span></span>
+                                </div>
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
@@ -158,13 +182,19 @@
                             <label>idealhumidity</label>
                             <div class="input-group">
                               
-                                <input ng-model="product.idealhumidity" type="Number" class="form-control input-circle-right" placeholder="idealhumidity"> </div>
+                                <input ng-model="product.idealhumidity" type="Number" class="form-control input-circle-right" placeholder="idealhumidity" required name="idealhumidity">
+                                <span style="color:red" ng-show="myForm.idealhumidity.$dirty && myForm.idealhumidity.$invalid">
+                                            <span ng-show="myForm.idealhumidity.$error.required">idealhumidity is required.</span></span>
+                                 </div>
                         </div>
                          <div class="form-group">
                             <label>idealtemperature</label>
                             <div class="input-group">
                               
-                                <input  ng-model="product.idealtemperature" type="Number" class="form-control input-circle-right" placeholder="idealtemperature"> </div>
+                                <input  ng-model="product.idealtemperature" type="Number" class="form-control input-circle-right" placeholder="idealtemperature" required name="idealtemperature"> 
+                                <span style="color:red" ng-show="myForm.idealtemperature.$dirty && myForm.idealtemperature.$invalid">
+                                            <span ng-show="myForm.idealtemperature.$error.required">idealtemperature is required.</span></span>
+                                </div>
                         </div> 
                        
                        
@@ -173,11 +203,12 @@
                         
                     </div>
                     <div class="form-actions">
-                       <a href="#/datatables/managed.html">  <button type="submit" class="btn blue" ng-click="addProduct()">Submit</button></a>
+                       <a href="#/datatables/managed.html">  <button type="submit" ng-disabled=" product.type==null || product.unitPrice==null ||product.idealtemperature==null || product.idealhumidity==null || product.tag==null" class="btn blue" ng-click="addProduct()">Submit</button></a>
                         <button type="button" class="btn default">Cancel</button>
                     </div>
                 </form>
             </div>
+                         </form>
         </div>
   
     </div>

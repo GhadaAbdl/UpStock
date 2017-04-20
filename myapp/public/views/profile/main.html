@@ -8,6 +8,7 @@
                     <!-- END STYLE CUSTOMIZER -->
                     <!-- BEGIN ACTUAL CONTENT -->
                     <div ui-view class="fade-in-up">
+                        
                     <!-- BEGIN PAGE HEADER-->
 <div class="page-bar">
     <ul class="page-breadcrumb">
@@ -18,7 +19,39 @@
         <li>
             <a href="#/profile/dashboard">User Profile</a>
         </li>
+         <div class="notif" style="color:red;" ng-controller="notif">
+        <div class="dropdown" style=" display:inline-block;
+    margin-left:20px;
+    ">
+  <a id="dLabel" role="button" ng-click="notification.somme=null" data-toggle="dropdown" data-target="#" href="/page.html">
+    <i class="glyphicon glyphicon-bell"></i>
+  </a><span class="badge badge-danger">{{notification.somme}}</span>
+  
+  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+    
+    <div class="notification-heading"><h4 class="menu-title">Notifications</h4><h4 class="menu-title pull-right">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4>
+    </div>
+    <li class="divider"></li>
+   <div class="notifications-wrapper" ng-repeat="claim in lclaims">
+     <a class="content" href="#">
+      
+       <div class="notification-item">
+        <h4 class="item-title">{{claim.descrition}}</h4>
+        <p class="item-info">{{claim.tag}}</p>
+      </div>
+       
+    </a>
+     
+
+   </div>
+    <li class="divider"></li>
+    <div class="notification-footer"><h4 class="menu-title">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></h4></div>
+  </ul>
+  
+</div>
+    </div>
     </ul>
+    
     <div class="page-toolbar">
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
@@ -91,7 +124,8 @@
                         </li>
                         <li>
                             <a href="#/todo">
-                                <i class="icon-check"></i> Tasks </a>
+                                <i class="icon-check"></i> Tasks <span class="desc"></span> </a>
+                                
                         </li>
                         <li ng-class="{active: $state.includes('profile.help')}">
                             <a ui-sref="profile.help">
