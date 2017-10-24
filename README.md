@@ -1,4 +1,4 @@
-# UpStock
+# UpStock , Mean Stack
 Mean Stack Project , Team Meanners
 
 It is a project during the challenge Agorize Fm Logistics which present an innovative
